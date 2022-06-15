@@ -9,7 +9,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'sudo docker build -t patelsaheb/hellonodejs:eks .'
+				sh 'sudo docker build -t Rohini85/eks-jenkins-demo:eks .'
                
 			}
 		}
@@ -18,15 +18,15 @@ pipeline{
 
             steps {
         
-		        withCredentials([string(credentialsId: 'DOCKER_PWD', variable: 'PASSWORD')]) {
-                    sh 'sudo docker login -u patelsaheb -p $PASSWORD'
+		        withCredentials([string(credentialsId: 'Myhub123!', variable: 'PASSWORD')]) {
+                    sh 'sudo docker login -u Rohini3 -p $PASSWORD'
                 }
             }
         }
 		stage('Push') {
 
 			steps {
-				sh 'sudo docker push patelsaheb/hellonodejs:eks'
+				sh 'sudo docker push Rohini85/eks-jenkins-demo:eks'
 			}
 		}
 

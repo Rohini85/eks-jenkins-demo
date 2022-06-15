@@ -9,7 +9,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'sudo docker build -t Rohini85/eks-jenkins-demo:eks .'
+				sh 'sudo docker build -t rohini3/aws-dkr:eks .'
                
 			}
 		}
@@ -26,7 +26,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'sudo docker push Rohini85/eks-jenkins-demo:eks'
+				sh 'sudo docker push Rohini3/aws-dkr'
 			}
 		}
 

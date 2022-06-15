@@ -26,7 +26,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'sudo docker push Rohini3/aws-dkr'
+				sh 'sudo docker push Rohini3/aws-dkr:eks'
 			}
 		}
 

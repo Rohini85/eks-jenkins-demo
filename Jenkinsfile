@@ -33,10 +33,10 @@ pipeline{
         stage('eks deploy') {
 
 			steps {
-				sh 'kubectl get -o yaml deploy/demo-nodejs.yml > deploy.yaml'
+				sh 'kubectl get deploy -o yaml hello-world-nodejs.yml > deploy.yaml'
                 sh "sed -i 's/rohini3:latest/rohini3:eks/g' deploy.yaml"
                 sh 'kubectl apply -f deploy.yaml'
-                sh 'kubectl rollout restart deployment demo-nodejs.yml'
+                sh 'kubectl rollout restart deployment hello-world-nodejs.yml'
 			}
 		}
 	}

@@ -19,7 +19,7 @@ pipeline{
             steps {
         
 		        withCredentials([string(credentialsId: 'DOCKER_PWD', variable: 'PASSWORD')]) {
-                    sh 'sudo docker login -u Rohini3 --password-stdin Myhub123!'
+                    sh 'sudo docker login -u rohini3 --password-stdin Myhub123!'
                 }
             }
         }

@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: hello-world-nodejs
-          image: rohini3/eks-repo:latest
+          image: rohini3/aws-dkr:eks
           ports:
 
             - containerPort: 8080

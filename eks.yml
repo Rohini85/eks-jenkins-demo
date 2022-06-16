@@ -6,8 +6,8 @@ metadata:
   region: us-east-2
 
 nodeGroups:
-  - name: myNodeGroup
-    instanceType: t2.small
+  - name: mynode-group
+    instanceType: t3.medium
     desiredCapacity: 2
     amiFamily: Ubuntu2004 #node is ubuntu based
     ssh: # use existing EC2 key

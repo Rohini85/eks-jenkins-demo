@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: hello-world-nodejs
-          image: patelsaheb/hellonodejs:latest
+          image: rohini3/eks-repo:latest
           ports:
 
             - containerPort: 8080

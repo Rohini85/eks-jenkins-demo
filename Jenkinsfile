@@ -1,28 +1,27 @@
-
-pipeline{
+pipeline {
 
 	agent any
 
-	
+
 	stages {
 
 		stage('Build') {
 
 			steps {
 				sh 'sudo docker build -t rohini3/eks-repo:eks .'
-               
+
 			}
 		}
-        
-        stage('login') {
 
-            steps {
-        
-		        withCredentials([string(credentialsId: 'DOCKER_PWD', variable: 'PASSWORD')]) {
-                   	sh 'sudo docker login -u rohini3 -p Myhub123!'
-                }
-            }
-        }
+		stage('login') {
+
+			steps {
+
+				withCredentials([string(credentialsId: 'DOCKER_PWD', variable: 'PASSWORD')]) {
+					sh 'sudo docker login -u rohini3 -p Myhub123!'
+				}
+			}
+		}
 		stage('Push') {
 
 			steps {
@@ -30,14 +29,13 @@ pipeline{
 			}
 		}
 
-        stage('eks deploy') {
+		stage('eks deploy') {
 
 			steps {
-				sh 'kubectl create -f deploy/hello-world-nodejs'
 				sh 'kubectl get deploy/hello-world-nodejs > deploy.yaml'
-                		sh "sed -i 's/hellonodejs:latest/hellonodejs:eks/g' deploy.yaml"
-                		sh 'kubectl apply -f deploy.yaml'
-                		sh 'kubectl rollout restart deployment hello-world-nodejs'
+				sh "sed -i 's/hellonodejs:latest/hellonodejs:eks/g' deploy.yaml"
+				sh 'kubectl apply -f deploy.yaml'
+				sh 'kubectl rollout restart deployment hello-world-nodejs'
 			}
 		}
 	}
@@ -45,11 +43,10 @@ pipeline{
 	post {
 		always {
 
-            		cleanWs()
-			
-            		echo "done"
+			cleanWs()
+
+			echo "done"
 		}
 	}
 
 }
-

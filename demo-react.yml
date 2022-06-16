@@ -18,7 +18,7 @@ spec:
       containers:
       - name: demo-react-app
         # Docker Image
-        image: andreanimi/demo-react-app:v1
+        image: rohini3/aws-dkr:v1
         resources:
          #cpu and memory limit
           limits:

@@ -19,7 +19,7 @@ pipeline{
             steps {
         
 		        withCredentials([string(credentialsId: 'DOCKER_PWD', variable: 'PASSWORD')]) {
-                    sh 'sudo docker login -u rohini3 -p Myhub123!'
+                   	x sh 'sudo docker login -u rohini3 -p Myhub123!'
                 }
             }
         }
@@ -33,11 +33,11 @@ pipeline{
         stage('eks deploy') {
 
 			steps {
-				sh 'kubectl create -f demo-nodejs.yaml'
-				sh 'kubectl get deploy -o yaml demo-nodejs.yaml > deploy.yaml'
-                sh "sed -i 's/rohini3:latest/rohini3:eks/g' deploy.yaml"
-                sh 'kubectl apply -f deploy.yaml'
-                sh 'kubectl rollout restart deployment demo-nodejs.yaml'
+		
+				sh 'kubectl get -o yaml deploy/hello-world-nodejs > deploy.yaml'
+                		sh "sed -i 's/rohini3:latest/rohini3:eks/g' deploy.yaml"
+                		sh 'kubectl apply -f deploy.yaml'
+                		sh 'kubectl rollout restart deployment hello-world-nodejs'
 			}
 		}
 	}

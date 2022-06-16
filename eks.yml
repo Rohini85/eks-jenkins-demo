@@ -3,12 +3,12 @@ kind: ClusterConfig
 
 metadata:
   name: demo
-  region: us-east-1
+  region: us-east-2
 
 nodeGroups:
-  - name: myNodeGroup-1
+  - name: myNodeGroup
     instanceType: t2.small
-    desiredCapacity: 3
+    desiredCapacity: 2
     amiFamily: Ubuntu2004 #node is ubuntu based
     ssh: # use existing EC2 key
       publicKeyName: eksdemo

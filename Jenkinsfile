@@ -34,7 +34,7 @@ pipeline{
 
 			steps {
 				sh 'kubectl create -f demo-nodejs.yaml'
-				sh 'kubectl get -o yaml deploy/demo-nodejs.yaml > deploy.yaml'
+				sh 'kubectl get deploy -o yaml demo-nodejs.yaml > deploy.yaml'
                 sh "sed -i 's/rohini3:latest/rohini3:eks/g' deploy.yaml"
                 sh 'kubectl apply -f deploy.yaml'
                 sh 'kubectl rollout restart deployment demo-nodejs.yaml'

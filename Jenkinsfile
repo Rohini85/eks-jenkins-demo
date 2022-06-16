@@ -8,7 +8,7 @@ pipeline {
 		stage('Build') {
 
 			steps {
-				sh 'sudo docker build -t rohini3/eks-repo:eks'
+				sh 'sudo docker build -t rohini3/eks-repo:eks .'
 
 			}
 		}

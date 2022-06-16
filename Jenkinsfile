@@ -33,7 +33,7 @@ pipeline {
 
 			steps {
 				sh 'kubectl get deploy/hello-world-nodejs > deploy.yaml'
-				sh "sed -i 's/hellonodejs:latest/hellonodejs:eks/g' deploy.yaml"
+				sh "sed -i 's/rohini3:latest/rohini3:eks/g' deploy.yaml"
 				sh 'kubectl apply -f deploy.yaml'
 				sh 'kubectl rollout restart deployment hello-world-nodejs'
 			}

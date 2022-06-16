@@ -11,5 +11,5 @@ nodeGroups:
     desiredCapacity: 2
     amiFamily: Ubuntu2004 #node is ubuntu based
     ssh: # use existing EC2 key
-      publicKeyName: eksdemo
+      publicKeyName: docker
 
